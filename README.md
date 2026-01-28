@@ -102,8 +102,8 @@ Fuel Efficiency Prediction/
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/yourusername/fuel-efficiency-prediction.git
-cd fuel-efficiency-prediction
+git clone https://github.com/gopaljha16/Fuel-Efficiency-Prediction-Using-Machine-Learning.git
+cd "Fuel Efficiency Prediction Using Machine Learning"
 ```
 
 ### Step 2: Create Virtual Environment
@@ -288,13 +288,13 @@ Contributions are welcome! Please follow these steps:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## 👨‍💻 Author
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+**Gopal Jha**
+- GitHub: [@gopaljha16](https://github.com/gopaljha16)
+- Project Repository: [Fuel Efficiency Prediction](https://github.com/gopaljha16/Fuel-Efficiency-Prediction-Using-Machine-Learning)
 
 ## 🙏 Acknowledgments
 
@@ -305,7 +305,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-For support, email your.email@example.com or create an issue in the repository.
+For support, create an issue in the [GitHub repository](https://github.com/gopaljha16/Fuel-Efficiency-Prediction-Using-Machine-Learning/issues).
 
 ---
 
