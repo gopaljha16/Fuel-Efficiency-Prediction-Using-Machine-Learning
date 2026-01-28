@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Preprocess Dataset</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- Favicon -->
+  <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Flaticon Font -->
+  <link href="{% static 'lib/flaticon/font/flaticon.css' %}" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <style>
+    .form-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      margin: 30px auto;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #c25b4b;
+    }
+
+    .form-container label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .form-container input,
+    .form-container select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      border: none;
+      background: #c25b4b;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background: #a9443a;
+    }
+
+    .result {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+
+  <!-- Topbar -->
+  <div class="navbar-custom d-flex justify-content-between align-items-center">
+    <h1 class="text-primary m-0">Fuel Efficiency Prediction Using Machine Learning</h1>
+    <div>
+      <a href="{% url 'user_home' %}" class="btn btn-outline-primary mr-2">
+        <i class="fa fa-home"></i> Home
+      </a>
+      <a href="{% url 'logout' %}" class="btn btn-outline-danger">
+        <i class="fa fa-sign-out-alt"></i> Logout
+      </a>
+    </div>
+  </div>
+ 
+
+  <!-- Form Section -->
+  <div class="form-container">
+    <h2>Enter the Data to Predict</h2>
+
+    <form method="POST">
+      {% csrf_token %}
+      
+      <label>Displacement:</label>
+      <input type="number" step="0.1" name="displacement" required>
+
+      <label>Seats:</label>
+      <input type="number" name="seats" required>
+
+      <label>Length:</label>
+      <input type="number" step="0.1" name="length" required>
+
+      <label>Width:</label>
+      <input type="number" step="0.1" name="width" required>
+
+      <label>Height:</label>
+      <input type="number" step="0.1" name="height" required>
+
+      <label>Wheelbase:</label>
+      <input type="number" step="0.1" name="wheelbase" required>
+
+      <label>No of Cylinders:</label>
+      <input type="number" name="cylinders" required>
+
+      <label>Fuel Tank Capacity:</label>
+      <input type="number" step="0.1" name="fuel_tank" required>
+
+      <label>Boot Space:</label>
+      <input type="number" step="0.1" name="boot_space" required>
+
+      <label>Fuel:</label>
+      <select name="fuel" required>
+        <option value="0">Petrol</option>
+        <option value="1">Diesel</option>
+        <option value="2">CNG</option>
+        <option value="3">Electric</option>
+        <option value="4">Hybrid</option>
+      </select>
+
+      <label>Transmission:</label>
+      <select name="transmission" required>
+        <option value="0">Manual</option>
+        <option value="1">Automatic</option>
+      </select>
+
+      <label>Drive:</label>
+      <select name="drive" required>
+        <option value="0">2WD</option>
+        <option value="1">4WD</option>
+        <option value="2">AWD</option>
+      </select>
+
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if result %}
+      <div class="result">
+        Predicted Fuel Efficiency: {{ result }} 
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary border back-to-top">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'mail/contact.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

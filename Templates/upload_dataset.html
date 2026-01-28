@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Admin Home</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="{% static 'lib/flaticon/font/flaticon.css' %}" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+   <style>
+    .carousel-caption {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.55);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+    }
+    .upload-box {
+        background: #fff;
+        border: 2px dashed #007bff;
+        border-radius: 12px;
+        padding: 30px;
+        max-width: 400px;
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+        text-align: center;
+    }
+    .upload-box:hover {
+        background: #f8faff;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        border-color: #0056b3;
+    }
+    .upload-box h4 {
+        font-weight: bold;
+        color: #333;
+        margin-top: 10px;
+    }
+    .upload-box i {
+        font-size: 48px;
+        color: #007bff;
+        margin-bottom: 15px;
+    }
+    .upload-box button {
+        margin-top: 15px;
+        padding: 10px 20px;
+    }
+</style>
+</head>
+
+<body class="bg-light">
+
+    <!-- Topbar -->
+    <div class="navbar-custom d-flex justify-content-between align-items-center">
+        <h1 class="text-primary m-0">Fuel Efficiency Prediction Using Machine Learning</h1>
+        <div>
+            <a href="{% url 'admin_home' %}" class="btn btn-outline-primary mr-2">
+                <i class="fa fa-home"></i> Home
+            </a>
+            <a href="{% url 'logout' %}" class="btn btn-outline-danger">
+                <i class="fa fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Carousel Section -->
+    <div class="container-fluid p-0">
+        <div id="blog-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="{% static 'img/model home.png' %}" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center text-center">
+                        <h2 class="text-white font-weight-bold mb-3" style="font-size: 32px;">Welcome Upload Dataset</h2>
+                        <hr class="bg-light w-50">
+
+                        <!-- Upload Form Section -->
+                        <div class="upload-box">
+                            <i class="fa fa-cloud-upload-alt"></i>
+                            <h4>Upload Dataset</h4>
+                            <p class="text-muted">Upload your dataset file (CSV / Excel) for analysis.</p>
+
+                            {% if message %}
+                                <div class="alert alert-info">
+                                    {{ message }}
+                                </div>
+                            {% endif %}
+
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-upload"></i> Upload
+                                </button>
+                            </form>
+                        </div>
+                    </div> <!-- carousel-caption -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary border back-to-top">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'mail/contact.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

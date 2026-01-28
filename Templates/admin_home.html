@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Admin Home</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="{% static 'lib/flaticon/font/flaticon.css' %}" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <style>
+        .navbar-custom {
+            background: #f8f9fa;
+            border-bottom: 2px solid #e3e6ea;
+            padding: 15px 30px;
+        }
+        .navbar-custom h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+        .card {
+            border-radius: 12px;
+            transition: all 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .upload-box {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <!-- Topbar -->
+    <div class="navbar-custom d-flex justify-content-between align-items-center">
+        <h1 class="text-primary m-0">Fuel Efficiency Prediction Using Machine Learning</h1>
+        <div>
+            <a href="{% url 'admin_home' %}" class="btn btn-outline-primary mr-2">
+                <i class="fa fa-home"></i> Home
+            </a>
+            <a href="{% url 'logout' %}" class="btn btn-outline-danger">
+                <i class="fa fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Carousel Section -->
+    <div class="container-fluid p-0">
+        <div id="blog-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="{% static 'img/model home.png' %}" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="container mt-5">
+                            <h2 class="text-center text-white font-weight-bold" style="font-size: 36px;">
+                                Welcome Admin
+                            </h2>
+                            <hr class="bg-light">
+
+                            <div class="row mt-4">
+                                <!-- Upload Dataset -->
+                                <div class="col-md-4 mb-3">
+                                    <div class="card shadow-sm p-4 text-center">
+                                        <i class="fa fa-upload fa-2x text-primary mb-3"></i>
+                                        <h5>Upload Dataset</h5>
+                                        <p class="text-muted">Upload a dataset file (CSV/Excel) for fuel efficiency prediction.</p>
+                                        <a href="{% url 'upload_dataset' %}" class="btn btn-primary btn-block">Go to Upload Page</a>
+                                    </div>
+                                </div>
+
+                                <!-- Preprocess Dataset -->
+                                <div class="col-md-4 mb-3">
+                                    <div class="card shadow-sm p-4 text-center">
+                                        <i class="fa fa-cogs fa-2x text-success mb-3"></i>
+                                        <h5>Preprocess Dataset</h5>
+                                        <p class="text-muted">Clean and preprocess the uploaded dataset for analysis.</p>
+                                        <a href="{% url 'preprocess_dataset' %}" class="btn btn-success btn-block">Preprocess</a>
+                                    </div>
+                                </div>
+
+                                <!-- Build Model -->
+                                <div class="col-md-4 mb-3">
+                                    <div class="card shadow-sm p-4 text-center">
+                                        <i class="fa fa-robot fa-2x text-warning mb-3"></i>
+                                        <h5>Build Model</h5>
+                                        <p class="text-muted">Train a Machine Learning model for fuel efficiency detection.</p>
+                                        <a href="{% url 'build_model' %}" class="btn btn-warning btn-block">Build Model</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3"></div>
+
+                                 <!-- Build Model -->
+                                <div class="col-md-4 mb-3">
+                                    <div class="card shadow-sm p-4 text-center">
+                                       <i class="fa fa-chart-bar fa-2x text-warning mb-3"></i>
+                                        <h5>Comparison Graph</h5>
+                                        <p class="text-muted">View Comparison Graph of Models.</p>
+                                        <a href="{% url 'comparison' %}" class="btn btn-warning btn-block">Comparison Graph</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div> <!-- carousel-caption -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary border back-to-top">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'mail/contact.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
